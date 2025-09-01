@@ -22,7 +22,19 @@ const { title, description = "Personal website showcasing web development projec
       <nav aria-label="Main navigation">
         <div class="nav-container">
           <a href="/" class="logo" aria-label="Home">Braden's World</a>
-          <ul class="nav-links" role="list">
+          
+          <button 
+            class="mobile-menu-toggle" 
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+            type="button"
+          >
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <ul class="nav-links" role="list" id="mobile-nav">
             <li><a href="/" aria-current="page">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="/projects">Projects</a></li>
@@ -46,5 +58,52 @@ const { title, description = "Personal website showcasing web development projec
       /* Import global styles */
       @import '../styles/global.css';
     </style>
+
+    <!-- Mobile Menu JavaScript - Progressive Enhancement -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileNav = document.querySelector('.nav-links');
+        
+        if (mobileToggle && mobileNav) {
+          mobileToggle.addEventListener('click', function() {
+            const isOpen = mobileNav.classList.contains('mobile-menu-open');
+            
+            if (isOpen) {
+              mobileNav.classList.remove('mobile-menu-open');
+              mobileToggle.setAttribute('aria-expanded', 'false');
+            } else {
+              mobileNav.classList.add('mobile-menu-open');
+              mobileToggle.setAttribute('aria-expanded', 'true');
+            }
+          });
+
+          const navLinks = mobileNav.querySelectorAll('a');
+          navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+              if (window.getComputedStyle(mobileToggle).display !== 'none') {
+                mobileNav.classList.remove('mobile-menu-open');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+              }
+            });
+          });
+
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileNav.classList.contains('mobile-menu-open')) {
+              mobileNav.classList.remove('mobile-menu-open');
+              mobileToggle.setAttribute('aria-expanded', 'false');
+              mobileToggle.focus();
+            }
+          });
+
+          window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && mobileNav.classList.contains('mobile-menu-open')) {
+              mobileNav.classList.remove('mobile-menu-open');
+              mobileToggle.setAttribute('aria-expanded', 'false');
+            }
+          });
+        }
+      });
+    </script>
   </body>
 </html>

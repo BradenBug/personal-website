@@ -31,78 +31,213 @@ p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 
-/* CSS Custom Properties (Variables) */
+/* 
+  CSS Custom Properties (Variables) - Comprehensive Design System
+  Think of this like a configuration file for your entire design
+  Changing a value here updates it everywhere it's used
+*/
 :root {
-  /* Colors */
-  --color-text: #333333;
-  --color-text-light: #666666;
-  --color-background: #ffffff;
-  --color-surface: #f8f9fa;
-  --color-primary: #2563eb;
-  --color-primary-hover: #1d4ed8;
-  --color-accent: #059669;
-  --color-border: #e5e7eb;
+  /* 
+    Color Palette - Semantic color naming
+    Instead of "blue" and "green", we use "primary" and "accent"
+    This makes it easy to rebrand or add dark mode later
+  */
+  --color-text: #1f2937;           /* Main text - slightly softer than pure black */
+  --color-text-light: #6b7280;    /* Secondary text - good for subtitles */
+  --color-text-muted: #9ca3af;    /* Muted text - for less important content */
+  --color-background: #ffffff;     /* Page background */
+  --color-surface: #f9fafb;       /* Card backgrounds, sections */
+  --color-surface-hover: #f3f4f6; /* Hover states for interactive elements */
   
-  /* Typography */
-  --font-family-base: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  /* Brand Colors */
+  --color-primary: #3b82f6;        /* Main brand color - used for CTAs, links */
+  --color-primary-hover: #2563eb;  /* Darker version for hover states */
+  --color-primary-light: #dbeafe; /* Light version for backgrounds */
+  --color-accent: #10b981;         /* Secondary brand color - for highlights */
+  --color-accent-hover: #059669;   /* Darker accent for hover */
   
-  /* Mobile-first font sizes */
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 1.875rem;
-  --font-size-4xl: 2.25rem;
+  /* Utility Colors */
+  --color-border: #e5e7eb;         /* Subtle borders and dividers */
+  --color-border-focus: #3b82f6;   /* Focus indicators */
+  --color-success: #10b981;        /* Success states */
+  --color-warning: #f59e0b;        /* Warning states */
+  --color-error: #ef4444;          /* Error states */
   
-  /* Spacing */
-  --space-xs: 0.5rem;
-  --space-sm: 0.75rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 3rem;
-  --space-3xl: 4rem;
+  /* 
+    Typography System - Consistent text sizing
+    Mobile-first approach: base sizes work on mobile, grow on larger screens
+  */
+  --font-family-base: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
   
-  /* Layout */
-  --container-max: 1200px;
-  --container-padding: 1rem;
-  --header-height: 60px;
+  /* Font Size Scale - Based on modular scale (1.125 ratio) */
+  --font-size-xs: 0.75rem;    /* 12px - small labels */
+  --font-size-sm: 0.875rem;   /* 14px - secondary text */
+  --font-size-base: 1rem;     /* 16px - body text (browser default) */
+  --font-size-lg: 1.125rem;   /* 18px - large body text */
+  --font-size-xl: 1.25rem;    /* 20px - small headings */
+  --font-size-2xl: 1.5rem;    /* 24px - medium headings */
+  --font-size-3xl: 1.875rem;  /* 30px - large headings */
+  --font-size-4xl: 2.25rem;   /* 36px - hero text */
+  --font-size-5xl: 3rem;      /* 48px - display text */
   
-  /* Borders and Shadows */
-  --border-radius: 0.375rem;
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Line Heights - For optimal reading experience */
+  --line-height-tight: 1.25;   /* For headings */
+  --line-height-normal: 1.5;   /* For body text */
+  --line-height-relaxed: 1.75; /* For long-form content */
+  
+  /* 
+    Spacing System - Consistent spacing throughout the site
+    Based on 8px grid system (common in design systems)
+  */
+  --space-px: 1px;      /* 1px - for borders */
+  --space-0: 0;         /* 0px - reset margins/padding */
+  --space-xs: 0.5rem;   /* 8px - tight spacing */
+  --space-sm: 0.75rem;  /* 12px - small spacing */
+  --space-md: 1rem;     /* 16px - base unit */
+  --space-lg: 1.5rem;   /* 24px - medium spacing */
+  --space-xl: 2rem;     /* 32px - large spacing */
+  --space-2xl: 2.5rem;  /* 40px - extra large */
+  --space-3xl: 3rem;    /* 48px - section spacing */
+  --space-4xl: 4rem;    /* 64px - page-level spacing */
+  --space-5xl: 5rem;    /* 80px - hero spacing */
+  
+  /* 
+    Layout Dimensions - Consistent sizing for layout elements
+  */
+  --container-max: 1200px;      /* Maximum content width */
+  --container-padding: 1rem;    /* Mobile container padding */
+  --header-height: 60px;        /* Fixed header height for mobile */
+  --sidebar-width: 240px;       /* For future sidebar components */
+  
+  /* 
+    Interactive Element Sizing - Consistent button and form sizes
+  */
+  --size-xs: 1.5rem;   /* 24px - small icons, buttons */
+  --size-sm: 2rem;     /* 32px - medium buttons */
+  --size-md: 2.5rem;   /* 40px - standard button height */
+  --size-lg: 3rem;     /* 48px - large buttons */
+  --size-xl: 3.5rem;   /* 56px - hero buttons */
+  
+  /* 
+    Border Radius System - Consistent rounded corners
+  */
+  --radius-none: 0;
+  --radius-sm: 0.125rem;    /* 2px - subtle rounding */
+  --radius-base: 0.25rem;   /* 4px - standard rounding */
+  --radius-md: 0.375rem;    /* 6px - medium rounding */
+  --radius-lg: 0.5rem;      /* 8px - large rounding */
+  --radius-xl: 0.75rem;     /* 12px - extra large */
+  --radius-full: 9999px;    /* Perfect circle/pill shape */
+  
+  /* 
+    Shadow System - Layered shadows for depth
+    Each level creates more elevation from the surface
+  */
+  --shadow-none: none;
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-base: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  
+  /* 
+    Animation & Transition System - Consistent timing
+    Fast for micro-interactions, slower for layout changes
+  */
+  --duration-fast: 150ms;      /* Quick hover effects */
+  --duration-normal: 250ms;    /* Standard transitions */
+  --duration-slow: 350ms;      /* Complex animations */
+  
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* 
+    Z-Index System - Prevents overlap issues
+    Each component gets its own layer
+  */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
 }
 
-/* Base Typography */
+/* 
+  Base Typography - Foundation for all text
+  Using our design system tokens for consistency
+*/
 body {
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
   color: var(--color-text);
   background-color: var(--color-background);
 }
 
+/* 
+  Heading Hierarchy - Semantic sizing that creates visual hierarchy
+  Each heading level is proportionally smaller than the previous
+*/
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  line-height: 1.2;
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
   margin-bottom: var(--space-md);
+  color: var(--color-text); /* Ensure headings are always high contrast */
 }
 
-h1 { font-size: var(--font-size-3xl); }
-h2 { font-size: var(--font-size-2xl); }
-h3 { font-size: var(--font-size-xl); }
-h4 { font-size: var(--font-size-lg); }
+h1 { 
+  font-size: var(--font-size-4xl); 
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-lg);
+}
+h2 { 
+  font-size: var(--font-size-3xl); 
+  margin-bottom: var(--space-lg);
+}
+h3 { 
+  font-size: var(--font-size-2xl); 
+}
+h4 { 
+  font-size: var(--font-size-xl); 
+}
+h5 { 
+  font-size: var(--font-size-lg); 
+  font-weight: var(--font-weight-medium);
+}
+h6 { 
+  font-size: var(--font-size-base); 
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
 
+/* Body text with improved readability */
 p {
   margin-bottom: var(--space-md);
+  line-height: var(--line-height-normal);
 }
 
+/* 
+  Link Styles - Consistent interactive elements
+  Using design system for colors and timing
+*/
 a {
   color: var(--color-primary);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color var(--duration-fast) var(--ease-out);
+  font-weight: var(--font-weight-medium); /* Slightly bolder for better visibility */
 }
 
 a:hover, a:focus {
@@ -110,10 +245,11 @@ a:hover, a:focus {
   text-decoration: underline;
 }
 
+/* Enhanced focus visibility for accessibility */
 a:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-border-focus);
   outline-offset: 2px;
-  border-radius: 2px;
+  border-radius: var(--radius-sm);
 }
 
 /* Layout Components */
@@ -123,7 +259,56 @@ a:focus-visible {
   padding: 0 var(--container-padding);
 }
 
-/* Header Styles */
+/* Advanced Grid Layouts - Think of these like database table structures */
+.grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+/* Two-column responsive grid - automatically wraps to single column on mobile */
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Adaptive grid - prevents horizontal scrolling on very narrow screens */
+.grid-auto {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}
+
+/* Flexbox Utilities - Think of flexbox as distributing space along a line */
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
 header {
   background-color: var(--color-background);
   border-bottom: 1px solid var(--color-border);
@@ -141,16 +326,50 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 100%;
+  position: relative;
 }
 
 .logo {
   font-weight: 700;
   font-size: var(--font-size-lg);
   color: var(--color-text);
+  z-index: 101;
 }
 
 .logo:hover {
   text-decoration: none;
+}
+
+/* Mobile Menu Toggle - Hidden on desktop, visible on mobile */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+}
+
+.mobile-menu-toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Hamburger Lines - Creates the classic "three lines" icon */
+.hamburger-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text);
+  margin: 3px 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
 }
 
 .nav-links {
@@ -188,13 +407,60 @@ header {
   border-bottom-color: var(--color-primary);
 }
 
-/* Main Content */
+/* Mobile Navigation - Transform horizontal nav into full-screen vertical menu */
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-background);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: var(--space-2xl) var(--space-lg);
+    gap: var(--space-xl);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    border-top: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+  }
+
+  .nav-links.mobile-menu-open {
+    transform: translateX(0);
+  }
+
+  .nav-links a {
+    font-size: var(--font-size-lg);
+    padding: var(--space-md);
+    border-bottom: none;
+    width: 100%;
+    text-align: center;
+    border-radius: var(--border-radius);
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus {
+    background-color: var(--color-surface);
+    border-bottom: none;
+  }
+
+  .nav-links a[aria-current="page"] {
+    background-color: var(--color-surface);
+    border-bottom: none;
+  }
+}
+
 main {
   min-height: calc(100vh - var(--header-height) - 80px);
   padding: var(--space-xl) 0;
 }
 
-/* Footer */
 footer {
   background-color: var(--color-surface);
   border-top: 1px solid var(--color-border);
@@ -228,24 +494,50 @@ footer {
   text-align: center;
 }
 
-/* Responsive Design - Tablet and up */
-@media (min-width: 768px) {
+/* Enhanced Responsive Design System */
+
+@media (min-width: 481px) {
   :root {
-    --container-padding: 2rem;
-    --font-size-3xl: 2.5rem;
-    --font-size-4xl: 3rem;
-    --header-height: 70px;
-  }
-  
-  main {
-    padding: var(--space-2xl) 0;
+    --container-padding: 1.25rem;
+    --font-size-3xl: 2rem;
+    --font-size-4xl: 2.5rem;
+    --font-size-5xl: 3rem;
+    --space-3xl: 3.5rem;
+    --space-4xl: 4.5rem;
   }
 }
 
-/* Desktop */
+@media (min-width: 768px) {
+  :root {
+    --container-padding: 2rem;
+    --header-height: 70px;
+    --font-size-3xl: 2.25rem;
+    --font-size-4xl: 3rem;
+    --font-size-5xl: 3.75rem;
+    --space-3xl: 4rem;
+    --space-4xl: 5rem;
+    --space-5xl: 6rem;
+  }
+  
+  main {
+    padding: var(--space-3xl) 0;
+  }
+}
+
 @media (min-width: 1024px) {
   :root {
-    --font-size-3xl: 3rem;
-    --font-size-4xl: 3.75rem;
+    --font-size-4xl: 3.5rem;
+    --font-size-5xl: 4.5rem;
+    --container-padding: 2.5rem;
+    --space-4xl: 6rem;
+    --space-5xl: 8rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --font-size-4xl: 4rem;
+    --font-size-5xl: 5rem;
+    --container-padding: 3rem;
   }
 }
