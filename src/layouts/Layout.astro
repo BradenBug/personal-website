@@ -1,0 +1,50 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Personal website showcasing web development projects" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header>
+      <nav aria-label="Main navigation">
+        <div class="nav-container">
+          <a href="/" class="logo" aria-label="Home">Braden's World</a>
+          <ul class="nav-links" role="list">
+            <li><a href="/" aria-current="page">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <p>&copy; Built with <a href="https://astro.build">Astro</a>.</p>
+      </div>
+    </footer>
+
+    <style>
+      /* Import global styles */
+      @import '../styles/global.css';
+    </style>
+  </body>
+</html>

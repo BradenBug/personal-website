@@ -1,16 +1,283 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Your Name - Full-Stack Developer" description="Personal website showcasing web development projects and technical expertise">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Hi, I'm Braden</h1>
+        <div class="hero-actions">
+          <a href="#projects-preview" class="btn btn-primary">View Projects</a>
+          <a href="#about" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Preview Section -->
+  <section id="about" class="about-preview">
+    <div class="container">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <p>
+          I'm Braden
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Preview Section -->
+  <section id="projects-preview" class="projects-preview">
+    <div class="container">
+      <h2>Featured Projects</h2>
+      <p>Live demos of what I'm building and learning</p>
+      <div class="projects-grid">
+        <article class="project-card">
+          <h3>Braden's Oven Temperature</h3>
+          <p>Real-time Braden's oven temperature tracking + chat.</p>
+          <div class="project-links">
+            <a href="/projects/oven-temp" class="btn btn-primary">Experience the Magic</a>
+            <a href="/projects/oven-temp/about" class="btn btn-secondary">Learn More</a>
+          </div>
+        </article>
+        
+        <div class="project-placeholder">
+          <h3>More Projects Coming Soon</h3>
+          <p>Check back for updates...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Preview Section -->
+  <section id="contact" class="contact-preview">
+    <div class="container">
+      <h2>Get In Touch</h2>
+      <p>Let's connect!</p>
+      <div class="contact-info">
+        <p>Contact form and links coming soon?</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 100%);
+  }
+
+  .hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero h1 {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--space-md);
+    color: var(--color-text);
+  }
+
+  .hero-subtitle {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-light);
+    margin-bottom: var(--space-lg);
+    font-weight: 500;
+  }
+
+  .hero-description {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-light);
+    margin-bottom: var(--space-2xl);
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Button Styles */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    color: white;
+    text-decoration: none;
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: white;
+    text-decoration: none;
+  }
+
+  .btn:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 4px;
+  }
+
+  /* Section Styles */
+  section {
+    padding: var(--space-3xl) 0;
+  }
+
+  section h2 {
+    text-align: center;
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  section p {
+    text-align: center;
+    color: var(--color-text-light);
+    margin-bottom: var(--space-xl);
+  }
+
+  /* About Preview */
+  .about-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .skills-preview {
+    margin-top: var(--space-xl);
+    padding: var(--space-lg);
+    background-color: var(--color-surface);
+    border-radius: var(--border-radius);
+  }
+
+  .skills-preview h3 {
+    margin-bottom: var(--space-md);
+    color: var(--color-text);
+  }
+
+  .skills-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-sm);
+  }
+
+  .skills-list li {
+    padding: var(--space-xs);
+    background-color: var(--color-background);
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--color-accent);
+  }
+
+  /* Projects Preview */
+  .projects-preview {
+    background-color: var(--color-surface);
+  }
+
+  .projects-grid {
+    display: grid;
+    gap: var(--space-xl);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .project-card, .project-placeholder {
+    background-color: var(--color-background);
+    padding: var(--space-xl);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    text-align: left;
+  }
+
+  .project-card h3, .project-placeholder h3 {
+    margin-bottom: var(--space-md);
+    color: var(--color-text);
+  }
+
+  .project-links {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+    flex-wrap: wrap;
+  }
+
+  .project-placeholder {
+    text-align: center;
+    border: 2px dashed var(--color-border);
+    background-color: var(--color-surface);
+  }
+
+  /* Contact Preview */
+  .contact-preview {
+    background-color: var(--color-surface);
+  }
+
+  .contact-info {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: var(--space-xl);
+    background-color: var(--color-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .hero {
+      padding: var(--space-2xl) 0;
+    }
+    
+    .hero h1 {
+      font-size: var(--font-size-3xl);
+    }
+    
+    .hero-subtitle {
+      font-size: var(--font-size-lg);
+    }
+    
+    .hero-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .btn {
+      min-width: 200px;
+      justify-content: center;
+    }
+    
+    .skills-list {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
