@@ -2,12 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Your Name - Full-Stack Developer" description="Personal website showcasing web development projects and technical expertise">
+<Layout title="Braden Wicker - Full-Stack Developer" description="Personal website showcasing development projects and technical expertise">
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <h1>Hi, I'm Braden</h1>
+        <h1>Welcome to Braden's World</h1>
         <div class="hero-actions">
           <a href="#projects-preview" class="btn btn-primary">View Projects</a>
           <a href="#about" class="btn btn-secondary">Learn More</a>
@@ -67,7 +67,7 @@ import Layout from '../layouts/Layout.astro';
   /* Hero Section - Enhanced visual hierarchy and spacing */
   .hero {
     padding: var(--space-4xl) 0;
-    background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 100%);
+    background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%);
   }
 
   .hero-content {
@@ -78,7 +78,7 @@ import Layout from '../layouts/Layout.astro';
 
   .hero h1 {
     font-size: var(--font-size-5xl);
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-medium);
     line-height: var(--line-height-tight);
     margin-bottom: var(--space-lg);
     color: var(--color-text);
@@ -120,7 +120,7 @@ import Layout from '../layouts/Layout.astro';
     padding: 0 var(--space-xl);
     border-radius: var(--radius-md);
     font-size: var(--font-size-base);
-    font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-medium);
     text-decoration: none;
     transition: all var(--duration-fast) var(--ease-out);
     border: 2px solid transparent;
@@ -175,7 +175,7 @@ import Layout from '../layouts/Layout.astro';
   section h2 {
     text-align: center;
     font-size: var(--font-size-3xl);
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-medium);
     margin-bottom: var(--space-xl);
     color: var(--color-text);
   }
@@ -244,7 +244,7 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .projects-preview {
-    background-color: var(--color-surface);
+    background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%);
   }
 
   /* Enhanced Project Card Styles */
@@ -252,7 +252,7 @@ import Layout from '../layouts/Layout.astro';
     background-color: var(--color-background);
     padding: var(--space-2xl);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-sm);
     text-align: left;
     border: 1px solid var(--color-border);
     transition: all var(--duration-normal) var(--ease-out);
@@ -296,7 +296,7 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .contact-preview {
-    background-color: var(--color-surface);
+    background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%);
   }
 
   .contact-info {

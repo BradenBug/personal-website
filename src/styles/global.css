@@ -42,19 +42,19 @@ p, h1, h2, h3, h4, h5, h6 {
     Instead of "blue" and "green", we use "primary" and "accent"
     This makes it easy to rebrand or add dark mode later
   */
-  --color-text: #1f2937;           /* Main text - slightly softer than pure black */
-  --color-text-light: #6b7280;    /* Secondary text - good for subtitles */
-  --color-text-muted: #9ca3af;    /* Muted text - for less important content */
-  --color-background: #ffffff;     /* Page background */
-  --color-surface: #f9fafb;       /* Card backgrounds, sections */
+  --color-text: #43574B;           /* Main text */
+  --color-text-light: #43574B;    /* Secondary text */
+  --color-text-muted: #959C94;    /* Muted text important content */
+  --color-background: #E8E8E8;     /* Page background */
+  --color-surface: #E0E0E0;       /* Card backgrounds, sections */
   --color-surface-hover: #f3f4f6; /* Hover states for interactive elements */
   
   /* Brand Colors */
-  --color-primary: #3b82f6;        /* Main brand color - used for CTAs, links */
-  --color-primary-hover: #2563eb;  /* Darker version for hover states */
-  --color-primary-light: #dbeafe; /* Light version for backgrounds */
-  --color-accent: #10b981;         /* Secondary brand color - for highlights */
-  --color-accent-hover: #059669;   /* Darker accent for hover */
+  --color-primary: #43574B;        /* Main brand color - used for CTAs, links */
+  --color-primary-hover: #43574B;  /* Darker version for hover states */
+  --color-primary-light: #BF6900; /* Light version for backgrounds */
+  --color-accent: #4B2E39;         /* Secondary brand color - for highlights */
+  --color-accent-hover: #32021F;   /* Darker accent for hover */
   
   /* Utility Colors */
   --color-border: #e5e7eb;         /* Subtle borders and dividers */
@@ -67,7 +67,7 @@ p, h1, h2, h3, h4, h5, h6 {
     Typography System - Consistent text sizing
     Mobile-first approach: base sizes work on mobile, grow on larger screens
   */
-  --font-family-base: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-base: ui-serif, Georgia, 'Times New Roman', Times, serif;
   --font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
   
   /* Font Size Scale - Based on modular scale (1.125 ratio) */
@@ -191,7 +191,7 @@ body {
   Each heading level is proportionally smaller than the previous
 */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-medium);
   line-height: var(--line-height-tight);
   margin-bottom: var(--space-md);
   color: var(--color-text); /* Ensure headings are always high contrast */
@@ -199,7 +199,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 { 
   font-size: var(--font-size-4xl); 
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-medium);
   margin-bottom: var(--space-lg);
 }
 h2 { 
@@ -330,7 +330,7 @@ header {
 }
 
 .logo {
-  font-weight: 700;
+  font-weight: var(--font-weight-medium);
   font-size: var(--font-size-lg);
   color: var(--color-text);
   z-index: 101;
